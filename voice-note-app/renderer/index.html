@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>音声 → note記事</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>音声 → note記事</h1>
+      <p class="subtitle">マイクに向かって気づきを話すと、note記事に仕上げます</p>
+    </header>
+
+    <!-- 録音セクション -->
+    <section class="section" id="record-section">
+      <div class="section-label">STEP 1 — 録音</div>
+      <div class="record-controls">
+        <button id="record-btn" class="record-btn">
+          <span class="mic-icon">&#9679;</span>
+          <span id="record-label">録音開始</span>
+        </button>
+        <div id="status-msg" class="status-msg">マイクボタンを押して話しかけてください</div>
+      </div>
+    </section>
+
+    <!-- 文字起こしセクション -->
+    <section class="section" id="transcript-section">
+      <div class="section-header">
+        <div class="section-label">STEP 2 — 文字起こし（編集可）</div>
+        <button id="clear-btn" class="text-btn">クリア</button>
+      </div>
+      <textarea id="transcript" placeholder="録音した内容がここに表示されます。直接編集もできます。"></textarea>
+    </section>
+
+    <!-- 生成セクション -->
+    <section class="section">
+      <div class="section-label">STEP 3 — note記事を生成</div>
+      <button id="generate-btn" class="generate-btn" disabled>
+        記事を生成する
+      </button>
+    </section>
+
+    <!-- 記事出力セクション -->
+    <section class="section" id="article-section" style="display:none;">
+      <div class="section-header">
+        <div class="section-label">生成された記事</div>
+        <div class="article-actions">
+          <button id="copy-btn" class="text-btn">コピー</button>
+          <button id="save-btn" class="text-btn">保存（.txt）</button>
+        </div>
+      </div>
+      <textarea id="article-output" readonly></textarea>
+    </section>
+
+    <div id="error-msg" class="error-msg" style="display:none;"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

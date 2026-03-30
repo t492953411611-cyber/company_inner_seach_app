@@ -1,0 +1,17 @@
+{
+  "name": "voice-note-app",
+  "version": "1.0.0",
+  "description": "音声で気づきを記録してnote記事を生成するアプリ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "install-deps": "npm install"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  background: #f5f5f0;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #777;
+}
+
+.section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-header .section-label {
+  margin-bottom: 0;
+}
+
+/* 録音ボタン */
+.record-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.record-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ff4060;
+  color: white;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.record-btn:hover {
+  background: #e53356;
+}
+
+.record-btn:active {
+  transform: scale(0.97);
+}
+
+.record-btn.recording {
+  background: #333;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(51,51,51,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(51,51,51,0); }
+}
+
+.mic-icon {
+  font-size: 14px;
+}
+
+.status-msg {
+  font-size: 13px;
+  color: #888;
+}
+
+/* テキストエリア */
+textarea {
+  width: 100%;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.7;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+  color: #1a1a1a;
+}
+
+textarea:focus {
+  border-color: #aaa;
+  background: #fff;
+}
+
+#transcript {
+  min-height: 120px;
+}
+
+#article-output {
+  min-height: 280px;
+  background: #fafff8;
+}
+
+/* ボタン類 */
+.text-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.text-btn:hover {
+  background: #f0f0f0;
+  color: #444;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #19a974;
+  color: white;
+  transition: background 0.2s, opacity 0.2s, transform 0.1s;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: #128f60;
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.generate-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.generate-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* エラー */
+.error-msg {
+  background: #fff0f0;
+  border: 1px solid #ffcccc;
+  color: #cc3333;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* コピー成功トースト */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  background: #333;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
